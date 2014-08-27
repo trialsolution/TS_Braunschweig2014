@@ -94,30 +94,19 @@ Recent developments in the market model:
 
 ## What do we use from FAOSTAT?
 
-Commodity balances
-\centerline{\includegraphics[height=2.5in]{figure/FAO_commbalances.png}}
+Official (and public) data on:
 
+- Commodity balances
+- Trade balances
+- Production statistics
+- Land use
+- Trade matrix
 
-## What do we use from FAOSTAT?
+And some restricted data on Taiwan...
 
-Trade balances
+## We really download it from the FAOSTAT website...
+
 \centerline{\includegraphics[height=2.5in]{figure/FAO_trade.png}}
-
-
-## What do we use from FAOSTAT?
-
-Production statistics
-\centerline{\includegraphics[height=2.5in]{figure/FAO_production.png}}
-
-## What do we use from FAOSTAT?
-
-Land use
-\centerline{\includegraphics[height=2.5in]{figure/FAO_landuse.png}}
-
-## What do we use from FAOSTAT?
-
-Trade matrix
-\centerline{\includegraphics[height=2in]{figure/trade_matrix.png}}
 
 
 ## FAO data consolidation
@@ -142,7 +131,32 @@ Limitations
 - Calibration points are different with/without policy blocks
 - => results can not be compared to the same reference scenario
 
-## Trade policies with 'policy blocks' option set to ON
+
+## Regional hierarchy in the market model
+
+------------------------------------------------------------------------------
+Define what?                Code     Description
+-------------------------   -------  -----------------------------------------
+trade policies              RMTP     policy block
+(tariffs, TRQ, ...)
+ 
+bilateral trade             RM       trade regions
+ 
+supply/demand quantites     RMS      regions with behavioral representation
+biofuels, land supply
+processing
+  
+young animals market        RMSSUP   countries covered by the supply models
+model                                          
+------------------------------------------------------------------------------
+
+
+## Regional hierarchy in the market model
+
+\centerline{\includegraphics[height=1.5in]{figure/regional_hierarchy.png}}
+
+
+## Tariff rate quotas
 
 ------------------------------------------------------------------------------
  Policy blocks   TRQ system                                            
@@ -158,7 +172,7 @@ Limitations
 
 
 
-## Trade policies with 'policy blocks' option set to ON
+## Public intervention
 
 
 ------------------------------------------------------------------------------
@@ -175,7 +189,7 @@ Limitations
 ------------------------------------------------------------------------------
 
 
-## Trade policies with 'policy blocks' option set to ON
+## Entry price system for fruits and vegs. (EU)
 
 
 ------------------------------------------------------------------------------
@@ -192,7 +206,7 @@ Limitations
 [^1]: An average market price is defined over ARM1 quantities
 
 
-## Trade policies with 'policy blocks' option set to ON
+## Export subsidies (subject to WTO commitments)
 
 ------------------------------------------------------------------------------
  Policy blocks   Subsidized exports
