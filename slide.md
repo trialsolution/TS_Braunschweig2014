@@ -171,6 +171,36 @@ model
 ------------------------------------------------------------------------------
 
 
+## Public intervention (reminder)
+
+\centerline{\includegraphics[height=1.5in]{figure/public_intervention.png}}
+
+###
+- Stock change = Purchases + Releases
+- Buyin = intMax * errorf[ (PADM - P_market + calib.param) / SD]
+- Release = (Stocks + Purchase) * [1 - errorf[ (UVAE - P_market + calib.param) / SD]]
+
+
+\note{Notes on intervention:
+
+- Both the calculation of purchases and releases assume a probability distribution behind market prices. 
+
+- Based on that the probability of market prices undercutting the administrative prices is taken into account. 
+
+- The assumed distribution is normal, which has the convenient property that it can be fully described with the mean and the standard deviation.} 
+
+\note{
+
+- SD is the standard deviation of market prices, estimated based on historical time series.
+
+- PADM is the administrative price. 
+
+- 'errorf' is a GAMS function which coincides with the cumulative distribution function of the standard normal distribution.
+}
+
+
+
+
 
 ## Public intervention
 
@@ -186,6 +216,7 @@ model
                  $$
                     log(s_i)=\varepsilon_i log(p_i) + c_i
                  $$
+                 shares $(s_i)$ depending on relative prices $(p_i)$
 ------------------------------------------------------------------------------
 
 
