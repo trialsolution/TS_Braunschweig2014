@@ -3,16 +3,14 @@
 
 ## Trade Liberalization Session
 
-What you can expect from the CAPRI market model
-
-- Small recap on market model features -- their impact on FTA simulations
-
-
-Recent developments in the market model:
-
-1. FAO data in the global database (__'new global'__ option)
-2. __Policy blocks__ -- a new geographical layer in the market model
-3. Price transmission from EU to member state level -- __endogenous price margins__
+1. What can you expect from the CAPRI market model?
+    - Small recap on market model features -- their impact on FTA simulations
+2. Hands-on (group) exercise: Russian import ban
+3. coffee break!
+3. Recent developments in the market model (advanced topics)
+    - FAO data in the global database (__'new global'__ option)
+    - __Policy blocks__ -- a new geographical layer in the market model
+    - Price transmission from EU to member state level -- __endogenous price margins__
 
 # Market model features (in general)
 ## Market model features (in general)
@@ -40,7 +38,72 @@ Recent developments in the market model:
       - tariff rate quotas (TRQ)
       - public intervention, export subsidies
 
+ 
+## Trade policies in CAPRI -- Tariff Rate Quotas (TRQ)
       
+- 'Transitional' measure for tariffication in the Uruguay Round
+- Two-tiered tariff approach
+    - lower tariff within a quota limit
+    - higher tariff (usually MFN) exceeding the quota
+- When filled, the quota creates economic rent
+    - the allocation of the rent is non-trivial
+    - the size of the rent depends on the demand
+- How strong demand is creates different market regimes
+    - underfilled, filled (at the quota), over-filled
+- In CAPRI TRQs are modelled using a smooth approximation of the regime switches
+      
+
+
+## Trade policies in CAPRI -- Tariff Rate Quotas (TRQ)
+
+\centerline{\includegraphics[height=3in]{figure/trq_underfilled.png}}
+
+
+## Trade policies in CAPRI -- Tariff Rate Quotas (TRQ)
+
+\centerline{\includegraphics[height=3in]{figure/trq.png}}
+
+## Trade policies in CAPRI -- Tariff Rate Quotas (TRQ)
+
+\centerline{\includegraphics[height=3in]{figure/trq_overfilled.png}}
+
+
+## Trade policies in CAPRI -- Public intervention
+
+\centerline{\includegraphics[height=1.5in]{figure/public_intervention.png}}
+
+###
+- Stock change = Purchases + Releases
+- Buyin = intMax * errorf[ (PADM - P_market + calib.param) / SD]
+- Release = (Stocks + Purchase) * [1 - errorf[ (UVAE - P_market + calib.param) / SD]]
+
+
+\note{Notes on intervention:
+
+- Both the calculation of purchases and releases assume a probability distribution behind market prices. 
+
+- Based on that the probability of market prices undercutting the administrative prices is taken into account. 
+
+- The assumed distribution is normal, which has the convenient property that it can be fully described with the mean and the standard deviation.} 
+
+\note{
+
+- SD is the standard deviation of market prices, estimated based on historical time series.
+
+- PADM is the administrative price. 
+
+- 'errorf' is a GAMS function which coincides with the cumulative distribution function of the standard normal distribution.
+}
+
+
+## Trade policies in CAPRI -- Flexible levy system (cereals)
+
+\centerline{\includegraphics[height=2in]{figure/flexlevy.png}}
+
+- Guarantees a minimum import price on the market with a flexible tariff rate
+- The entry price system for F&V is modelled similarly, but using different
+functional forms for the smooth approximation
+
 ## Market model features (other)     
 
 - Market for young animals, clearing at member state level      
@@ -57,8 +120,7 @@ Recent developments in the market model:
 - Biofuel processing (transport fuel)
     - CES share equations for demand, double-log for supply from feedstock
     - both 1st and 2nd generation (latter is exogenous)
-       
-       
+             
        
 ## Market model features (primary factors) 
 
@@ -169,35 +231,6 @@ model
                  Fill rate and applied tariff rate are defined at the  
                  EU level only (unique)                                 
 ------------------------------------------------------------------------------
-
-
-## Public intervention (reminder)
-
-\centerline{\includegraphics[height=1.5in]{figure/public_intervention.png}}
-
-###
-- Stock change = Purchases + Releases
-- Buyin = intMax * errorf[ (PADM - P_market + calib.param) / SD]
-- Release = (Stocks + Purchase) * [1 - errorf[ (UVAE - P_market + calib.param) / SD]]
-
-
-\note{Notes on intervention:
-
-- Both the calculation of purchases and releases assume a probability distribution behind market prices. 
-
-- Based on that the probability of market prices undercutting the administrative prices is taken into account. 
-
-- The assumed distribution is normal, which has the convenient property that it can be fully described with the mean and the standard deviation.} 
-
-\note{
-
-- SD is the standard deviation of market prices, estimated based on historical time series.
-
-- PADM is the administrative price. 
-
-- 'errorf' is a GAMS function which coincides with the cumulative distribution function of the standard normal distribution.
-}
-
 
 
 
