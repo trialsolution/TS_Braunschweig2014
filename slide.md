@@ -11,6 +11,7 @@
     - FAO data in the global database (__'new global'__ option)
     - __Policy blocks__ -- a new geographical layer in the market model
     - Price transmission from EU to member state level -- __endogenous price margins__
+    - CGE-style market model
 
 # Market model features (in general)
 ## Market model features (in general)
@@ -283,3 +284,63 @@ model
  ON              EU commitments freely distributed by the solver. Triggered by
                  an average EU market price
 ------------------------------------------------------------------------------
+
+
+
+
+# Endogenous price transmission from EU to member state level
+## Part III. Endogenous price margins
+
+
+
+# CGE-style market model template
+## Part IV. CGE-style market model
+
+
+## CET supply nest
+
+\centerline{\includegraphics[height=2.5in]{figure/CET_nest_CAPRI.png}}
+
+- Primary factors within the value added nest
+- Intermediate inputs are broken down to categories (Leontief)
+- Within intermediate input categories, substitution (CET)
+
+
+\note{Examples related to the CET nest
+
+- Crop yields do not depend on a fixed output coefficient but rather reacts on the relative price changes between the value added and intermediates.
+- Assume e.g. increasing land rents. If the substitution between the value added nest is not zero => substition of land with other primary factors (e.g. capital) => overall yield effect throught the CET nest
+
+
+- The CET nest of raw milk applies zero transformation elasticities (Leontief technology) to produce fat and protein (fix proportion)
+
+- CET nests are formulated with a combination of group price indexes (composite price index) and CET share equations
+- Those are the FOCs of the dual (cost minimization) problem
+- The current specification is of constant returns to scale
+
+}
+
+## CET supply nest (contnd.)
+
+- Intermediate inputs: 
+    - agircultural primaries
+    - feed (output of the feed industry)
+    - fat and protein content of milk (input to dairy industry)
+    - rest (other remaining)
+- E.g. for Feed, each animal process has its own Leontief coefficient (feed compound use in fix proportion), but (!) the composition of the feed can change due to the substitution between individual feed items
+
+
+## CET supply nest (contnd.)
+
+- Factor markets cover five primary factors represented in GTAP
+    - land, capital, skilled- and unskilled labor, natural resources
+- Industries at the top nest (9):
+    - arable cropping, grasland, permanent crops
+    - dairy, oilseed crushing, aquaculture
+    - feed industry
+    - food processing
+    - rest
+- Industries can be further broken down, e.g. arable => cereals, oilseeds, fodder, ...
+
+## CET supply nest (contnd.)
+
